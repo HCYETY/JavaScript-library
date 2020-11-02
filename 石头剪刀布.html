@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>猜拳游戏</title>
+	</head>
+	<body>
+		<h2>石头剪刀布</h2>
+		<p>欢迎玩家</p>
+		<script>
+			//1、定义变量
+			var player, computer;
+			//2、电脑出拳
+			computer = parseInt(Math.random()*3);  /*电脑产生0~3的随机数*/
+			console.log(parseInt(computer));
+			//3、玩家出拳	
+			player = parseInt(+(window.prompt('请出拳：0->石头，1->剪刀，2->布')));
+			console.log(player);
+			//4、判断用户输入的内容
+			if(player<0 || player>2) { //不符合条件
+				player = parseInt(+(window.prompt('请重新出拳：0->石头，1->剪刀，2->布')));
+			}else{ //符合条件
+				if(
+					player===0 && computer===1 ||
+					player===1 && computer===2 ||
+					player===2 && computer===0
+				){
+					alert('恭喜你，赢了！');
+				}else if(
+					player===0 && computer===2 ||
+					player===1 && computer===0 ||
+					player===2 && computer===1
+				){
+					alert('很遗憾，输了。');
+				}else {
+					alert('平局！');
+				}
+			}
+		</script>
+	</body>
+</html>
