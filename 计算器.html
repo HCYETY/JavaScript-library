@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>计算器</title>
+    </head>
+    <body>
+        <script>
+            var number1, number2, op, result;
+            number1 = +(window.prompt("请输入第一个数字："));
+            op = window.prompt("请输入运算符：+ - * /");
+            number2 = +(window.prompt("请输入第二个数字："));
+            switch(op) {
+                case "+":
+                    result = number1 + number2;
+                    break;
+                case "-":
+                    result = number1 - number2;
+                    break;
+                case "*":
+                    result = number1 * number2;
+                    break;
+                case "/":
+                    result = number1 / number2;
+                    break;
+                default:
+                    alert("更多功能请使用付费版本");
+            console.log('计算结果：',+result);
+            }
+        </script>
+    </body>
+</html>
