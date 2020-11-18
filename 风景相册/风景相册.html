@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>风景相册</title>
+	<style>
+        *{
+        	margin: 0;
+        	padding: 0;
+        }
+        body{
+        	margin: 50px;
+        }
+        #big-text{
+        	margin: 10px;
+        	color: orangered;
+        	font-size: 20px;
+        }
+        #big-img{
+            margin-left: 10px;
+        }
+        #small li{
+            list-style: none;
+            float: left;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+	<!--大图描述-->
+    <p id="big-text">蒲公英</p>
+    <!--大图展示-->
+    <img id="big-img" src="img/1.jpg" width="540">
+    <!--小图列表-->
+    <ul id="small">
+        <li>
+            <a href="img/1.jpg" title="蒲公英">
+                <img src="img/1.jpg" width="100" alt="蒲公英">
+            </a>
+        </li>
+        <li>
+            <a href="img/2.jpg" title="热气球">
+                <img src="img/2.jpg" width="100" alt="热气球">
+            </a>
+        </li>
+        <li>
+            <a href="img/3.jpg" title="别致小屋">
+                <img src="img/3.jpg" width="100" alt="别致小屋">
+            </a>
+        </li>
+        <li>
+            <a href="img/4.jpg" title="高山湖水">
+                <img src="img/4.jpg" width="100" alt="高山湖水">
+            </a>
+        </li>
+        <li>
+            <a href="img/5.jpg" title="高速公路">
+                <img src="img/5.jpg" width="100" alt="高速公路">
+            </a>
+        </li>
+    </ul>
+<script>
+    window.onload = function (ev) {
+        // 1. 获取需要的标签
+        var big-text = document.getElementById('big-text'); /*大图描述*/
+        var big-img = document.getElementById('big-img'); /*大图展示*/
+        var small = document.getElementById('small'); 小图列表
+        var aLists = small.getElementsByTagName('a'); /*a标签*/
+
+        // 2. 事件绑定
+        for (var i = 0; i < aLists.length; i++) {
+            var a = aLists[i];
+            // console.log(a);
+            a.onclick = function (ev1) {
+                big-text.innerText = this.title;
+                big-img.setAttribute('src', this.href); /*有疑问*/
+                // 阻止执行默认事件 a
+                return false; 
+            }
+        }
+    }
+</script>
+</body>
+</html>
