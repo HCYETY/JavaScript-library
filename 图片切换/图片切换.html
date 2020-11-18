@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>图片切换</title>
+	<style>
+		#box{
+			width: 1200px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<img id="icon" src="img/icon_01.png">
+		<p></p>
+		<button id="prev">上一张</button>
+		<button id="next">下一张</button>
+	</div>
+<script>
+	window.onload = function (ev) {
+		// 1) 获取标签
+		var icon = document.getElementById('icon');
+		var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+
+        // 2) 点击
+        var currentIndex = 1, minIndex = 1, maxIndex = 9;
+        prev.onclick = function (ev) {
+        	if(currentIndex === minIndex) {
+        		currentIndex = maxIndex;
+        	}else {
+        		currentIndex--;
+        	}
+        	icon.setAttribute('src', 'img/icon_0'+ currentIndex +'.png');
+        }
+        next.onclick = function (ev) {
+        	if(currentIndex === maxIndex) {
+        		currentIndex = minIndex;
+        	}else {
+        		currentIndex++;
+        	}
+        	icon.setAttribute('src', 'img/icon_0'+ currentIndex + '.png');
+        }
+	}
+</script>
+</body>
+</html>
