@@ -5,14 +5,23 @@
 	<title>图片切换</title>
 	<style>
 		#box{
-			width: 1200px;
+			width: 300px;
 			margin: 0 auto;
+			position: relative;
+            display: inline-block;
+            background-color: pink;
 		}
+		#close{
+            position: absolute;
+            left: 260px;
+            cursor: pointer; /* 不理解 */
+        }
 	</style>
 </head>
 <body>
 	<div id="box">
-		<img id="icon" src="img/icon_01.png">
+		<img id="icon" src="img/pic1.jpg" width="258">
+		<img id="close" src="img/close.jpg" width="40">
 		<p></p>
 		<button id="prev">上一张</button>
 		<button id="next">下一张</button>
@@ -23,16 +32,17 @@
 		var icon = document.getElementById('icon');
 		var prev = document.getElementById('prev');
         var next = document.getElementById('next');
+        var close = document.querySelector('#close'); /* 不理解 */
 
         // 2) 点击
-        var currentIndex = 1, minIndex = 1, maxIndex = 9;
+        var currentIndex = 1, minIndex = 1, maxIndex = 10;
         prev.onclick = function (ev) {
         	if(currentIndex === minIndex) {
         		currentIndex = maxIndex;
         	}else {
         		currentIndex--;
         	}
-        	icon.setAttribute('src', 'img/icon_0'+ currentIndex +'.png');
+        	icon.setAttribute('src', 'img/pic'+ currentIndex +'.jpg');
         }
         next.onclick = function (ev) {
         	if(currentIndex === maxIndex) {
@@ -40,7 +50,11 @@
         	}else {
         		currentIndex++;
         	}
-        	icon.setAttribute('src', 'img/icon_0'+ currentIndex + '.png');
+        	icon.setAttribute('src', 'img/pic'+ currentIndex + '.jpg');
+        }
+        close.onclick = function (ev) {
+            this.parentNode.remove();
+            // this.parentNode.style.display = 'none'; /* 不理解 */
         }
 	}
 </script>
