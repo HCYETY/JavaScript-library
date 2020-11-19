@@ -1,9 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title></title>
+	<style>
+		* {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #e_coder {
+        	width: 50px;
+        	height: 50px;
+        	position: fixed;
+        	background: url("images/e_coder_normal.png") no-repeat;
+        	top: 30%;
+        	cursor: pointer; /*不理解*/
+        }
+        #e_app {
+        	position: absolute;
+        	top: -50px;
+        	left: 50px;
+        	display: none;
+        }
+	</style>
 </head>
 <body>
+	<div id="e_coder">
+    	<div id="e_app">
+        	<img src="images/e_coder.jpg" alt="公众号" width="150">
+    	</div>
+	</div>
+<script>
+	window.onload = function (ev) {
+		// 1. 获取需要的标签
+        var e_coder = document.getElementById('e_coder');
+        var e_app = document.getElementById('e_app');
 
+        // 2. 监听鼠标进入
+        e_coder.onmouseover = function (ev1) {
+        	// 2.1 改变背景的图片
+        	this.style.background = 'url("images/e_coder_selected.png") no-repeat';
+        	// 2.2 显示二维码
+        	e_app.style.display = 'block';
+        };
+
+        // 3. 监听鼠标离开
+        e_coder.onmouseout = function (ev2) {
+        	// 3.1 改变背景的图片
+        	this.style.background = 'url("images/e_coder_normal.png") no-repeat';
+        	// 3.2 隐藏二维码
+        	e_app.style.display = 'none';
+        }
+	}
+</script>
 </body>
 </html>
