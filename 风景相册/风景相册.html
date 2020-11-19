@@ -11,12 +11,12 @@
         body{
         	margin: 50px;
         }
-        #big-text{
+        #bigText{
         	margin: 10px;
         	color: orangered;
         	font-size: 20px;
         }
-        #big-img{
+        #bigImg{
             margin-left: 10px;
         }
         #small li{
@@ -28,9 +28,9 @@
 </head>
 <body>
 	<!--大图描述-->
-    <p id="big-text">蒲公英</p>
+    <p id="bigText">蒲公英</p>
     <!--大图展示-->
-    <img id="big-img" src="img/1.jpg" width="540">
+    <img id="bigImg" src="img/1.jpg" width="540">
     <!--小图列表-->
     <ul id="small">
         <li>
@@ -62,18 +62,18 @@
 <script>
     window.onload = function (ev) {
         // 1. 获取需要的标签
-        var big-text = document.getElementById('big-text'); /*大图描述*/
-        var big-img = document.getElementById('big-img'); /*大图展示*/
-        var small = document.getElementById('small'); 小图列表
+        var bigText = document.getElementById('bigText'); /*大图描述*/
+        var bigImg = document.getElementById('bigImg'); /*大图展示*/
+        // var small = document.getElementById('small'); /*小图列表*/
         var aLists = small.getElementsByTagName('a'); /*a标签*/
 
         // 2. 事件绑定
         for (var i = 0; i < aLists.length; i++) {
             var a = aLists[i];
-            // console.log(a);
+            console.log(a);
             a.onclick = function (ev1) {
-                big-text.innerText = this.title;
-                big-img.setAttribute('src', this.href); /*有疑问*/
+                bigText.innerText = this.title;
+                bigImg.setAttribute('src', this.href); /*有疑问*/
                 // 阻止执行默认事件 a
                 return false; 
             }
