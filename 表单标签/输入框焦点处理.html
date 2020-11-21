@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>焦点</title>
+</head>
+<body>
+	<input type="text" placeholder="请输入姓名">
+<script>
+	window.onload = function (ev) {
+		var input = document.getElementsByTagName('input')[0];
+
+		// 1.获得焦点
+		input.onfocus = function (ev1) {
+			this.style.width = '600px';
+            this.style.height = '40px';
+            this.style.outline = 'none';
+            this.style.fontSize = '20px';
+        };
+		
+		// 2.失去焦点
+		input.onblur = function (ev1) {
+            this.style.border = '10px solid red';
+            this.style.color = 'red';
+        }
+	}
+</script>
+</body>
+</html>
