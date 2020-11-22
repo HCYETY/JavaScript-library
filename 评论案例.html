@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    #box{
+      width: 800px;
+      border: 1px solid #ccc;
+      margin: 100px auto;
+      padding: 20px;
+    }
+    #text{
+      width: 80%;
+      height: 120px;
+    }
+    .box-top{
+      margin-bottom: 20px;
+    }
+    #ul{
+      margin: 0 80px;
+    }
+    #ul li{
+      border-bottom: 1px dashed #ccc;
+      color: red;
+      line-height: 44px;
+    }
+    #ul li a{
+      float: right;
+    }
+</style>
+</head>
+<body>
+  <div id="box">
+    <div class="box-top">
+      <label>发表评论：</label>
+      <textarea id="text" cols="30" rows="10"></textarea>
+      <button id="btn">发表</button>
+    </div>
+    <ul id="ul"></ul>
+  </div>
+<script>
+  window.addEventListener('load', function (ev){ //不理解
+    $('btn') .addEventListener('click', function (ev) {
+      var text = $('text');
+       // 1. 获取输入框中的内容
+       var content = text.value; //不理解
+
+       // 2. 判断
+       if(content.length === 0) {
+         alert('请输入评论内容');
+         return;
+       }
+
+       // 3. 创建li标签放入ul
+       var ul = $('ul');
+       var li = document.createElement('li');
+       li.innerHTML = content + '<a href="javascript:;">删除</a>'
+       ul.insertBefore(li, ul.children[0]); //不理解
+
+       // 4. 清除输入框中的内容
+       text.value = '';
+
+       // 5. 删除评论
+       var as = ul.getElementsByTagName('a');
+       for(var i=0; i<as.length; i++) {
+         var a = as[i];
+         a.addEventListener('click', function (ev) {
+          this.parentNode.remove();
+         });
+       }
+    });
+  });
+
+  function $(id) {
+            return typeof id === 'string' ? document.getElementById(id) : null;
+        }
+</script>
+</body>
+</html>
