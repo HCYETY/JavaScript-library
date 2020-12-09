@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+}
+/* body{
+  background: url('images/huanle.jpg') no-repeat center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-size:100% 100%;
+} */
+.first{
+  position: relative;
+  width: 400px;
+  height: 200px;
+  border: 10px solid rgb(162, 201, 21);
+  text-align: center;
+  margin: 150px auto;
+  padding: 100px;
+}
+.first #k1, #k2{
+  border: 1px solid rgb(82, 194, 214);  
+  background-color: rgb(82, 194, 214);
+  width: 300px;
+  height: 30px;
+  margin: 10px;
+  text-align: center;
+}
+.first #k3{
+  background-color: #fff;
+  width: 250px;
+  height: 30px;
+  margin: 10px;
+}
+p{
+  font-size: 30px;
+  font-family: "楷体";
+  color: rgba(202, 60, 25, 0.801);  
+}

@@ -1,0 +1,41 @@
+一、文字放置于背景图片上（不设置background）：
+第一种方式是image 作为背景图片，即：background:url(".......");
+第二种方式是将img块与文字块（文字块采用span标签显示）放在同一个div 中，然后设置他们之间的位置，例如如下代码块：
+<div style="position: relative; width: 170px; height: 89px;">
+<img src="loading.gif" width="170" height="89" alt="">
+<span style="position: absolute; top: 0; left: 0;">添加文字...添加文字...添加文字...</span>
+</div>
+第三种方式是将img块与文字块（文本块存放在div中）放在同一个div 中，然后设置他们之间的位置，例如如下代码块：
+<div style="position:relative;">
+　　<img src="loading.gif" />
+　　<div style="position:absolute; z-index:2; left:10px; top:10px">添加文字...添加文字...添加文字...</div>
+</div>
+
+二、背景图片自适应屏幕大小
+
+三、播放多个mp3音频
+目前，html5<audio>标签只能同时播放一个音频文件，如何要添加多个MP3音频文件，然后按顺序一个接着一个连续播放，需要用JS代码来实现。
+
+通过js来实现<audio>标签连续播放多个MP3音频，代码如下：
+
+<div id="audioBox"> 
+<script type="text/javascript"> 
+window.onload = function(){ 
+var arr = ["http://www.lmlblog.com/blog/bozhao/images/believe.mp3","http://www.lmlblog.com/blog/bozhao/images/shui.mp3"];               //把需要播放的歌曲从后往前排，这里已添加两首音乐，可继续添加多个音乐 
+var myAudio = new Audio(); 
+myAudio.preload = true; 
+myAudio.controls = true; 
+myAudio.src = arr.pop();         //每次读数组最后一个元素 
+myAudio.addEventListener('ended', playEndedHandler, false); 
+myAudio.play(); 
+document.getElementById("audioBox").appendChild(myAudio); 
+myAudio.loop = false;//禁止循环，否则无法触发ended事件 
+function playEndedHandler(){ 
+myAudio.src = arr.pop(); 
+myAudio.play(); 
+console.log(arr.length); 
+!arr.length && myAudio.removeEventListener('ended',playEndedHandler,false);//只有一个元素时解除绑定 
+} 
+} 
+</script> 
+</div>
