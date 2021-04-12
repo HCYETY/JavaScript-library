@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .whole{
+            width: 500px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 50px auto;
+        }
+        .nav>li{
+            display: none;
+        }
+        .nav>.show{
+            display: block;
+        }
+        .box>.effect{
+            background-color: #ccc;
+        }
+        .box>li{
+            width: 30px;
+            height: 30px;
+            background-color: orange;
+            line-height: 30px;
+            text-align: center;
+            margin-right: 10px;
+            float: left;
+        }
+    </style>
+    <script src="../../../../jquery-1.10.2/jquery.js"></script>
+    <script>
+        $(function () {
+            $(".box>li").mouseover(function () {
+                $(this).addClass("effect");
+                $(this).siblings().removeClass("effect");
+                var index = $(this).index();
+                var $li = $(".nav>li").eq(index);
+                $li.addClass("show"); 
+                $li.siblings().removeClass("show");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="whole">
+        <ul class="nav">
+            <li class="show"> <img src="img/1.jpg" alt=""> </li>
+            <li> <img src="img/2.jpg" alt=""> </li>
+            <li> <img src="img/3.jpg" alt=""> </li>
+            <li> <img src="img/4.jpg" alt=""> </li>
+        </ul>
+        <ul class="box">
+            <li class="effect">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+</body>
+</html>
