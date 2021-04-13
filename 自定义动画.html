@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            margin-top: 10px;
+            background-color: red;
+        }
+        .two{
+            background-color: blue;
+        }
+    </style>
+    <script src="../../jquery-1.10.2/jquery.js"></script>
+    <script>
+        $(function() {
+            $("button").eq(0).click(function ()  {
+                /*
+                自定义动画animate的参数
+                第一个参数：接收一个对象，可以在对象中修改属性
+                第二个参数：指定动画时长
+                第三个参数：指定动画节奏，默认就是swing
+                第四个参数：动画执行完毕之后的回调函数
+                */
+                // 在jQuery的{}中可以同时修改多个属性，多个属性是动画也会同时执行
+
+                // 分布编程
+                $(".one").animate({
+                    width:500
+                }, 1000, function() {
+                    // alert("缓动自定义动画执行完毕");
+                });
+                $(".two").animate({
+                    marginLeft:500
+                }, 5000, "linear", function() {
+                    // alert("匀速自定义动画执行完毕");
+                });
+                // 链式编程
+                $(".one").animate({
+                    width:500
+                }, 1000).delay(2000).animate({  // delay方法的作用就是用于高速系统延迟时长
+                    height:500
+                }, 1000);
+            });
+
+            $("button").eq(1).click(function ()  {
+                $(".one").animate({
+                    width:"+=100"
+                }, 1000, function() {
+                    // alert("缓动自定义动画执行完毕");
+                });
+            });
+
+            $("button").eq(2).click(function ()  {
+                $(".one").animate({
+                    width:"toggle"
+                }, 1000, function() {
+                    // alert("缓动自定义动画执行完毕");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>操作属性</button>
+    <button>累加属性</button>
+    <button>关键字</button>
+    <div class="one"></div>
+    <div class="two"></div>
+</body>
+</html>
